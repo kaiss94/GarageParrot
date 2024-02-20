@@ -1,0 +1,21 @@
+@media (max-width: 1024px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media (min-width:1024px) {
+  body {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+body{
+  font-family: "Barlow", sans-serif;
+}
+
+h1, h2, h3, h5{
+  font-family: "Rajdhani", sans-serif;
+}
+
