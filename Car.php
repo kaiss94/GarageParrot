@@ -27,9 +27,7 @@ class Car
 
 
     // Connexion à la base de données
-    $dsn = 'mysql:host=localhost;dbname=GarageParrot';
-    $username = 'vincent_parrot';
-    $password = '3f7zhhRn4NH69R';
+    include_once 'connectDbAdmin.php';
 
     try {
       $this->pdo = new PDO($dsn, $username, $password);

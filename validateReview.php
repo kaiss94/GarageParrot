@@ -2,10 +2,7 @@
 include_once 'Review.php';
 
 // Connexion à la base de données
-$dsn = 'mysql:host=localhost;dbname=GarageParrot';
-$username = 'vincent_parrot';
-$password = '3f7zhhRn4NH69R';
-
+include_once 'connectDbAdmin.php';
 try {
   $pdo = new PDO($dsn, $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
