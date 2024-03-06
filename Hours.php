@@ -32,7 +32,7 @@ class Hours
   // Méthode pour enregistrer le service dans la base de données
   public function saveToDatabase()
   {
-    $stmt = $this->pdo->prepare('UPDATE openinghours SET lundiAuVendredi = :lundiAuVendredi, samedi = :samedi, dimanche = :dimanche WHERE id = 1');
+    $stmt = $this->pdo->prepare('UPDATE openingHours SET lundiAuVendredi = :lundiAuVendredi, samedi = :samedi, dimanche = :dimanche WHERE id = 1');
     $stmt->execute([
       'lundiAuVendredi' => $this->lundiAuVendredi,
       'samedi' => $this->samedi,
