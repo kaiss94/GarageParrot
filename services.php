@@ -54,7 +54,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <h5 class="card-title"><?php echo $service['serviceName']; ?></h5>
               <p class="card-text"><?php echo $service['description']; ?></p>
               <?php if (!isset($_SESSION['role'])) {  ?>
-              <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>">Contactez-nous</button>
+              <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>" name="<?php echo $service['serviceName']; ?>">Contactez-nous</button>
               <?php } else { ?>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                   <input type="hidden" name="service_id" value="<?php echo $service['serviceId']; ?>">

@@ -44,8 +44,8 @@
 
     contactButtonsServices.forEach(button => {
         button.addEventListener('click', () => {
-            const serviceId = "Demande de renseignement réf. service : #" + button.getAttribute('data-id');
-            // Préremplir le formulaire avec l'ID de la voiture
+            const serviceId = "Demande de renseignement pour le service : " + button.getAttribute('name') + ".";
+            // Préremplir le formulaire avec l'ID du service
             document.getElementById('carIdInput').value = serviceId;
 
             // Faire défiler la page jusqu'au formulaire

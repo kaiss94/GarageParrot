@@ -30,7 +30,7 @@ session_start();
     <!-- Conteneur présentation des voitures -->
     <?php require_once 'carouselCars.php'; ?>
 
-    <!-- Conteneur formulaire de contact -->
+    <!-- Conteneur formulaire des avis clients -->
     <?php require_once 'formReview.php'; ?>
 
     <!-- Conteneur formulaire de contact -->

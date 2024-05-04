@@ -46,7 +46,7 @@ CREATE TABLE services (
 );
 
 -- Création de la table "openingHours" pour stocker les horaires d'ouverture du garage
-CREATE TABLE openinghours (
+CREATE TABLE openingHours (
   id integer PRIMARY KEY UNIQUE,
   lundiAuVendredi varchar(50) NOT NULL,
   samedi varchar(100) NOT NULL,

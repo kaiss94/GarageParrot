@@ -7,13 +7,14 @@
     <title>Voitures d'occasion Garage Parrot</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <?php
 
 //Initiation du résultat
 $carResultsHTML = '<div class="container">';
-$carResultsHTML .= '<div class="row ">';
+$carResultsHTML .= '<div class="row g-4 align-items-center justify-content-md-center">';
 
 //Vérification de la méthode GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -69,8 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $carResultsHTML .= '</div>';
         $carResultsHTML .= '</div>';
         $carResultsHTML .= '</div>';
+        
     }
     $carResultsHTML .= '</div>';
     $carResultsHTML .= '</div>';
 }
-echo $carResultsHTML;
+
+
+echo "<h5 class='p-3'> Résultat de la recherche : ". count($carsFiltred) . " voitures correspondantes</h5>";
+echo $carResultsHTML . "</br>";

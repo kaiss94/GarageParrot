@@ -1,7 +1,7 @@
 <div class="container p-3 border">
   <div class="row">
 
-    <div class="col-3">
+    <div class="col-sm-3 bg-light rounded">
       <form action="add_review.php" method="post" enctype="multipart/form-data">
         <label for="clientName" class="form-label">Nom : </label>
         <input type="text" id="clientName" name="clientName" class="form-control" required>
@@ -22,14 +22,14 @@
         <label for="date" class="form-label">Date : </label>
         <input type="date" id="date" name="date" class="form-control" required>
 
-        <button type="submit" class="btn btn-dark">Envoyez votre avis</button>
+        <button type="submit" class="btn btn-dark my-3">Envoyez votre avis</button>
       </form>
     </div>
-    <div class="col-9">
-      <!-- Conteneur Avis -->
+
+    <!-- Conteneur Avis -->
+    <div class="col-sm-9">
       <?php require_once 'reviews.php'; ?>
     </div>
-
 
   </div>
 </div>
