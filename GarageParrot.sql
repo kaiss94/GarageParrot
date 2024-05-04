@@ -77,7 +77,7 @@ CREATE USER 'visitor'@'localhost' IDENTIFIED BY '3f7zhhRn4NH69R';
 GRANT SELECT ON GarageParrot.cars TO 'visitor'@'localhost';
 GRANT SELECT ON GarageParrot.reviews TO 'visitor'@'localhost';
 GRANT SELECT ON GarageParrot.services TO 'visitor'@'localhost';
-GRANT SELECT ON GarageParrot.openinghours TO 'visitor'@'localhost';
+GRANT SELECT ON GarageParrot.openingHours TO 'visitor'@'localhost';
 
 -- Création du compte utilisateur de Vincent Parrot (mot de passe : password123)
 INSERT INTO users (name, firstname, email, password)
