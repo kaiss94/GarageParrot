@@ -1,5 +1,5 @@
 <?php
-include_once 'Review.php';
+include_once 'models/Review.php';
 
 // Récupérer les données du formulaire
 $clientName = $_POST['clientName'];

@@ -1,5 +1,5 @@
 <?php
-include_once 'Review.php';
+include_once 'models/Review.php';
 
 // Connexion à la base de données
 include_once 'connectDbAdmin.php';

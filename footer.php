@@ -1,5 +1,5 @@
 <?php
-include_once 'Hours.php';
+include_once 'models/Hours.php';
 
 // Connexion à la base de données avec les droits admin
 include_once 'connectDbAdmin.php';

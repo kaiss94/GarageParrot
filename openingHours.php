@@ -1,5 +1,5 @@
 <?php
-include_once 'Hours.php';
+include_once 'models/Hours.php';
 
 // Récupérer les données du formulaire
 $lundiAuVendredi = $_POST['lundiAuVendredi'];

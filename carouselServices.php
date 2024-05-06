@@ -1,5 +1,5 @@
 <?php
-include_once 'Service.php';
+include_once 'models/Service.php';
 include_once 'connectDb.php';
 
 
@@ -22,7 +22,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $service['serviceName']; ?></h5>
                     <p class="card-text"><?php echo $service['description']; ?></p>
-                    <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>">Contactez-nous</button>
+                    <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>" name="<?php echo $service['serviceName']; ?>">Contactez-nous</button>
                   </div>
                 </div>
               </div>
