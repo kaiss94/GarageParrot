@@ -24,7 +24,7 @@ session_start();
     <div class="row">
 
       <div class="col-3">
-        <form action="openingHours.php" method="post" enctype="multipart/form-data">
+        <form action="controllers/openingHours.php" method="post" enctype="multipart/form-data">
           <label for="lundiAuVendredi" class="form-label">Du lundi au vendredi : </label>
           <input type="text" id="lundiAuVendredi" name="lundiAuVendredi" class="form-control" required>
 
