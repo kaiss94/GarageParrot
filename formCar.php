@@ -22,7 +22,7 @@ session_start();
 
     <div class="container p-3">
       <h2>Ajouter une voiture</h2>
-      <form action="add_car.php" method="post" enctype="multipart/form-data">
+      <form action="controllers/add_car.php" method="post" enctype="multipart/form-data">
         <label for="brand" class="form-label">Marque :</label>
         <input type="text" class="form-control" id="brand" name="brand" required><br>
 

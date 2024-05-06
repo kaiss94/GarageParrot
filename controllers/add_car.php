@@ -1,5 +1,5 @@
 <?php
-include_once 'models/Car.php';
+include_once '../models/Car.php';
 
 // Récupérer les données du formulaire
 $brand = $_POST['brand'];
@@ -14,7 +14,7 @@ $carImage = $_FILES['carImage'];
 // Vérifier si l'image a été téléchargée avec succès
 if ($carImage['error'] === UPLOAD_ERR_OK) {
   // Déplacer l'image vers le dossier d'uploads
-  $uploadPath = 'uploads/cars/' . basename($carImage['name']);
+  $uploadPath = '../uploads/cars/' . basename($carImage['name']);
   move_uploaded_file($carImage['tmp_name'], $uploadPath);
 
   // Créer une nouvelle instance de la classe Car avec les données du formulaire
@@ -24,7 +24,7 @@ if ($carImage['error'] === UPLOAD_ERR_OK) {
   $car->saveToDatabaseCars();
 
   // Redirection vers une page de confirmation ou autre
-  header('Location: cars.php');
+  header('Location: ../cars.php');
   exit();
 } else {
   // Gérer les erreurs de téléchargement de l'image

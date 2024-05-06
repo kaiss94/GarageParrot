@@ -19,3 +19,18 @@ h1, h2, h3, h5{
   font-family: "Rajdhani", sans-serif;
 }
 
+.pagination .page-link {
+  background-color: #000;
+  border-color: #000;
+  color: #fff; /* Couleur du texte */
+}
+
+.pagination .page-link:hover {
+  background-color: #6c757d; /* Couleur au survol */
+  border-color: #6c757d;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #6c757d; /* Couleur de l'élément actif */
+  border-color: #6c757d;
+}
