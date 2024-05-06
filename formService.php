@@ -19,7 +19,7 @@
   <main>
 
     <div class="container p-3">
-      <form action="add_service.php" method="post" enctype="multipart/form-data">
+      <form action="../controllers/add_service.php" method="post" enctype="multipart/form-data">
         <label for="serviceName" class="form-label">Nom du service :</label>
         <input type="text" id="serviceName" name="serviceName" class="form-control" required>
 

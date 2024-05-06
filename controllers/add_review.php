@@ -1,5 +1,5 @@
 <?php
-include_once 'models/Review.php';
+include_once '../models/Review.php';
 
 // Récupérer les données du formulaire
 $clientName = $_POST['clientName'];
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $review->saveToDatabase();
 
     // Redirection vers une page de confirmation ou autre
-    header('Location: reviews.php');
+    header('Location: ../reviews.php');
     exit();
 } else {
     // Gérer les erreurs

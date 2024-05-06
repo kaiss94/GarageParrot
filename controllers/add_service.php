@@ -1,5 +1,5 @@
 <?php
-include_once 'models/Service.php';
+include_once '../models/Service.php';
 
 // Récupérer les données du formulaire
 $serviceName = $_POST['serviceName'];
@@ -9,7 +9,7 @@ $serviceImage = $_FILES['serviceImage'];
 // Vérifier si l'image a été téléchargée avec succès
 if ($serviceImage['error'] === UPLOAD_ERR_OK) {
     // Déplacer l'image vers le dossier d'uploads
-    $uploadPath = 'uploads/services/' . basename($serviceImage['name']);
+    $uploadPath = '../uploads/services/' . basename($serviceImage['name']);
     move_uploaded_file($serviceImage['tmp_name'], $uploadPath);
 
     // Créer une instance de Service avec les données
@@ -19,7 +19,7 @@ if ($serviceImage['error'] === UPLOAD_ERR_OK) {
     $service->saveToDatabase();
 
     // Redirection vers une page de confirmation ou autre
-    header('Location: services.php');
+    header('Location: ../services.php');
     exit();
 } else {
     // Gérer les erreurs de téléchargement de l'image

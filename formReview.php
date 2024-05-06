@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-sm-3 bg-light rounded">
-      <form action="add_review.php" method="post" enctype="multipart/form-data">
+      <form action="../controllers/add_review.php" method="post" enctype="multipart/form-data">
         <label for="clientName" class="form-label">Nom : </label>
         <input type="text" id="clientName" name="clientName" class="form-control" required>
 
