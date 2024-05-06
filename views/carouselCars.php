@@ -10,7 +10,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
   <div class="container p-3 text-center border bg-secondary" id="carouselCars">
-    <h2 class="text-light">Nos occasions</h2>
+    <h2 class="text-light"><a class="link-light link-offset-2 link-underline link-underline-opacity-0" href="../views/cars.php">Nos occasions</a></h2>
     <div id="carouselCarsControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <?php foreach ($cars as $index => $car): ?>

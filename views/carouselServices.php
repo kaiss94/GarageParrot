@@ -10,7 +10,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
   <div class="container p-3 text-center border">
-    <h2>Découvrez nos prestations</h2>
+    <h2><a class="link-dark link-offset-2 link-underline link-underline-opacity-0" href="../views/services.php">Découvrez nos prestations</a></h2>
     <div id="carouselServicesControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <?php foreach ($services as $index => $service): ?>
