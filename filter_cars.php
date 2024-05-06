@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     // Connexion à la base de données
-    include_once 'connectDb.php';
+    include_once 'config/connectDb.php';
 
     // Préparation et exécution de la requête SQL
     $stmt = $pdo->prepare($sql);

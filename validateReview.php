@@ -2,7 +2,7 @@
 include_once 'models/Review.php';
 
 // Connexion à la base de données
-include_once 'connectDbAdmin.php';
+include_once 'config/connectDbAdmin.php';
 try {
   $pdo = new PDO($dsn, $username, $password);
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -2,7 +2,7 @@
 include_once 'models/Hours.php';
 
 // Connexion à la base de données avec les droits admin
-include_once 'connectDbAdmin.php';
+include_once 'config/connectDbAdmin.php';
 
 // Récupérer les cars depuis la base de données
 $stmt = $pdo->query('SELECT * FROM openinghours');

@@ -5,7 +5,7 @@ include_once 'models/Car.php';
 
 
 // Connexion à la base de données
-include_once 'connectDbAdmin.php';
+include_once 'config/connectDbAdmin.php';
 
 // Traitement de la suppression de la voiture
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['carId']) && isset($_POST['action'])) {

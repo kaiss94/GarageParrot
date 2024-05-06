@@ -1,7 +1,7 @@
 <?php
 
 // Connexion à la base de données
-include_once 'connectDbAdmin.php';
+include_once 'config/connectDbAdmin.php';
 
 try {
   $pdo = new PDO($dsn, $username, $password);
