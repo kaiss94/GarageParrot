@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once 'config/connectDbAdmin.php';
+include_once '../config/connectDbAdmin.php';
 
 try {
   $pdo = new PDO($dsn, $username, $password);
@@ -30,15 +30,15 @@ try {
         // création du cookie admin
         setcookie('user', 'admin', time() + 3600, '/');
         // redirection
-        header("location:admin.php");
+        header("location: ../admin.php");
       } else {
-        //Initialisation de notre session en tant super admin
+        //Initialisation de notre session en tant que super admin
         $_SESSION['role'] = 'employee';
         $_SESSION['email'] = $emailForm;
         // creation du cookie admin
         setcookie('user', 'employee', time() + 3600, '/');
         //redirection
-        header("location:admin.php");
+        header("location: ../admin.php");
       }
     } else {
       echo "Mot de passe incorrect";

@@ -22,7 +22,7 @@ session_start();
 
   <div class="container p-3">
     <h1>Connexion</h1>
-    <form action="loginPost.php" method="POST">
+    <form action="controllers/loginPost.php" method="POST">
       <label for="email" class="form-label">Adresse email :</label>
       <input type="email" name="email" class="form-control" required /> <br><br>
 
