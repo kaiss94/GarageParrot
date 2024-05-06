@@ -18,7 +18,7 @@
 
   <div class="container p-3">
     <h2>Ajouter un utilisateur</h2>
-    <form action="registerPost.php" method="POST">
+    <form action="controllers/registerPost.php" method="POST">
       <label for="name">Nom :</label>
       <input type="text" name="name" required><br><br>
 

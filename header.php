@@ -34,7 +34,7 @@ if (session_status() === PHP_SESSION_NONE) {
               <a class="nav-link text-light" href="admin.php">Administration</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="logout.php">Déconnexion</a>
+              <a class="nav-link text-light" href="controllers/logout.php">Déconnexion</a>
             </li>
           <?php } ?>
 
