@@ -18,7 +18,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="row justify-content-md-center">
               <div class="col-md-4">
                 <div class="card">
-                  <img src="<?php echo $car['pictureLocation']; ?>" class="card-img-top" alt="...">
+                  <img src="<?php echo $car['pictureLocation']; ?>" class="card-img-top" alt="..." style="height:270px;">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $car['brand']." ".$car['model']; ?></h5>
                     <p class="card-text">
