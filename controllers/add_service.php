@@ -19,7 +19,7 @@ if ($serviceImage['error'] === UPLOAD_ERR_OK) {
     $service->saveToDatabase();
 
     // Redirection vers une page de confirmation ou autre
-    header('Location: ../services.php');
+    header('Location: ../views/services.php');
     exit();
 } else {
     // Gérer les erreurs de téléchargement de l'image

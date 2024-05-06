@@ -1,7 +1,7 @@
 <?php
-include_once 'models/Car.php';
+include_once '../models/Car.php';
 
-include_once 'config/connectDb.php';
+include_once '../config/connectDb.php';
 
 // Récupérer les cars depuis la base de données
 $stmt = $pdo->query('SELECT * FROM cars');

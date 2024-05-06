@@ -30,7 +30,7 @@ try {
         // création du cookie admin
         setcookie('user', 'admin', time() + 3600, '/');
         // redirection
-        header("location: ../admin.php");
+        header("location: ../views/admin.php");
       } else {
         //Initialisation de notre session en tant que super admin
         $_SESSION['role'] = 'employee';
@@ -38,7 +38,7 @@ try {
         // creation du cookie admin
         setcookie('user', 'employee', time() + 3600, '/');
         //redirection
-        header("location: ../admin.php");
+        header("location: ../views/admin.php");
       }
     } else {
       echo "Mot de passe incorrect";

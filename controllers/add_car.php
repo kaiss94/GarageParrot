@@ -24,7 +24,7 @@ if ($carImage['error'] === UPLOAD_ERR_OK) {
   $car->saveToDatabaseCars();
 
   // Redirection vers une page de confirmation ou autre
-  header('Location: ../cars.php');
+  header('Location: ../views/cars.php');
   exit();
 } else {
   // Gérer les erreurs de téléchargement de l'image

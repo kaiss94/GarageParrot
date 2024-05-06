@@ -1,8 +1,8 @@
 <?php
-include_once 'models/Review.php';
+include_once '../models/Review.php';
 
 // Connexion à la base de données
-include_once 'config/connectDb.php';
+include_once '../config/connectDb.php';
 
 // Récupérer les reviews validés depuis la base de données
 $stmt = $pdo->query('SELECT * FROM reviews WHERE validated=1');

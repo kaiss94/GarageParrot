@@ -94,10 +94,10 @@ VALUES (1, '08:45-12:00, 14:00-18:00', '08:45-12:00', 'fermé');
 -- Création des voitures
 INSERT INTO cars (brand, model, mileage, kilometers, price, engine, description, pictureLocation)
 VALUES 
-('RENAULT', 'CLIO', 2010, 109000, 8500, 'DIESEL', '1.5 dCi 90cv', 'uploads/cars/clio3.jpg'),
-('CITROEN', 'C-CROSS', 2014, 89000, 6700, 'DIESEL', '1.6 hdi 92cv', 'uploads/cars/citroen.jpeg'),
-('CITROEN', 'PICASSO', 2004, 288000, 1750, 'ESSENCE', '2l 16v', 'uploads/cars/picasso.jpg'),
-('VOLKSWAGEN', 'PASSAT', 2017, 68000, 25000, 'ESSENCE', '1.4 TSI 150cv', 'uploads/cars/passat.jpg');
+('RENAULT', 'CLIO', 2010, 109000, 8500, 'DIESEL', '1.5 dCi 90cv', '../uploads/cars/clio3.jpg'),
+('CITROEN', 'C-CROSS', 2014, 89000, 6700, 'DIESEL', '1.6 hdi 92cv', '../uploads/cars/citroen.jpeg'),
+('CITROEN', 'PICASSO', 2004, 288000, 1750, 'ESSENCE', '2l 16v', '../uploads/cars/picasso.jpg'),
+('VOLKSWAGEN', 'PASSAT', 2017, 68000, 25000, 'ESSENCE', '1.4 TSI 150cv', '../uploads/cars/passat.jpg');
 
 -- Création des avis
 INSERT INTO reviews (clientName, comment, rate, date, validated)
@@ -110,8 +110,8 @@ VALUES
 -- Création des services
 INSERT INTO services (serviceName, description, location)
 VALUES
-('Carrosserie', "Peintures Réparations Pare-brise Remplacement d'éléments","uploads/services/carrosserie.jpg"),
-('Courroie de distribution', 'Remplacement de la courroie de distribution',"uploads/services/distributionCourroie.jpg"),
-('Pneus', "Remplacement des pneus. Equilibrage. Parallélisme.","uploads/services/pneus.jpg"),
-('Vidange', "Vidange huile moteur. Remplacement des filtres.","uploads/services/vidange.jpg"),
-('Freinage', "Remplacement des disques et plaquettes.","uploads/services/freinage.jpg");
+('Carrosserie', "Peintures Réparations Pare-brise Remplacement d'éléments","../uploads/services/carrosserie.jpg"),
+('Courroie de distribution', 'Remplacement de la courroie de distribution',"../uploads/services/distributionCourroie.jpg"),
+('Pneus', "Remplacement des pneus. Equilibrage. Parallélisme.","../uploads/services/pneus.jpg"),
+('Vidange', "Vidange huile moteur. Remplacement des filtres.","../uploads/services/vidange.jpg"),
+('Freinage', "Remplacement des disques et plaquettes.","../uploads/services/freinage.jpg");

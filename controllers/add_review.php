@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $review->saveToDatabase();
 
     // Redirection vers une page de confirmation ou autre
-    header('Location: ../reviews.php');
+    header('Location: ../views/reviews.php');
     exit();
 } else {
     // Gérer les erreurs

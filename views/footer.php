@@ -1,8 +1,8 @@
 <?php
-include_once 'models/Hours.php';
+include_once '../models/Hours.php';
 
 // Connexion à la base de données avec les droits admin
-include_once 'config/connectDbAdmin.php';
+include_once '../config/connectDbAdmin.php';
 
 // Récupérer les cars depuis la base de données
 $stmt = $pdo->query('SELECT * FROM openinghours');
@@ -48,8 +48,8 @@ foreach ($horaires as $horaire) {
     </div>
 
     <div class="col-md-4 col-sm-12 text-center">
-      <a href="index.php" class="d-inline-flex">
-        <img src="assets/images/logoSVG.svg" class="img-fluid" alt="logo">
+      <a href="../index.php" class="d-inline-flex">
+        <img src="../assets/images/logoSVG.svg" class="img-fluid" alt="logo">
       </a>
     </div>
 
