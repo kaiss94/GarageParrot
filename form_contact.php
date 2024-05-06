@@ -1,6 +1,6 @@
 <div class="container p-3 border bg-secondary text-light">
     <h2>Contactez-nous</h2>
-    <form id="contact-form" action="contact.php" method="post">
+    <form id="contact-form" action="controllers/contact.php" method="post">
         <label for="name" class="form-label">Nom :</label>
         <input type="text" class="form-control" id="name" name="name" required><br>
 
