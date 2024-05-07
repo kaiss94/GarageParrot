@@ -14,9 +14,12 @@ Executez toutes les commandes du script `GarageParrot.sql` dans l'ordre pour cr�
 
 ## Utilisation
 
-1. Accédez à l'application via votre navigateur en ouvrant `index.php`.
-2. Parcourez les différentes sections pour consulter les voitures disponibles, les avis des clients, les services proposés, etc.
-3. Connectez-vous en tant qu'utilisateur autorisé pour accéder à des fonctionnalités supplémentaires comme la modification des voitures, la validation des avis, etc.
+1. Configurez les connections à votre BDD dans le dossier "config". Attention il y a 2 fichiers car 2 niveaux d'accés. 
+`connectDb.php` permet de parcourir la base de données en lecture seule.
+`connectDbAdmin.php` permet de parcourir la base de données en lecture et écriture.
+2. Accédez à l'application via votre navigateur en ouvrant `index.php` dans le dossier "views".
+3. Parcourez les différentes sections pour consulter les voitures disponibles, les avis des clients, les services proposés, etc.
+4. Connectez-vous en tant qu'utilisateur autorisé pour accéder à des fonctionnalités supplémentaires comme la modification des voitures, la validation des avis, etc.
 Les 2 profils de connexion sont : 
   - Profil administrateur = Vincent Parrot : email de connexion : vincent.parrot@mongarage.com   mdp : password123
   - Profil employé = José Fereira : email de connexion : jose.fereira@mongarage.com   mdp : password123
