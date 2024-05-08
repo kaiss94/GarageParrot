@@ -1,26 +1,40 @@
 <?php
+session_start();
+
 include_once '../models/Service.php';
 
 // Connexion à la base de données
 include_once '../config/connectDbAdmin.php';
 
-try {
-  $pdo = new PDO($dsn, $username, $password);
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo 'Erreur de connexion : ' . $e->getMessage();
-  exit();
-}
 
 // Traitement de la suppression du service
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId']) && isset($_POST['action'])) {
   $serviceId = $_POST['serviceId'];
   $action = $_POST['action'];
   if ($action === 'delete') {
-    $stmt = $pdo->prepare('DELETE FROM services WHERE serviceId = :serviceId');
-    $stmt->execute(['serviceId' => $serviceId]);
+    // On vérifie si l'utilisateur a confirmé la suppression
+    if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] === 'yes') {
+      // Requête SQL pour récupérer le nom du fichier image associé au service
+      $stmt_select_image = $pdo->prepare('SELECT location FROM services WHERE serviceId = :serviceId');
+      $stmt_select_image->execute(['serviceId' => $serviceId]);
+      $image_location = $stmt_select_image->fetchColumn();
+
+      // On suprime le fichier image du serveur s'il existe
+      if (file_exists($image_location)) {
+        unlink($image_location); // Supprime le fichier
+      }
+
+      // Supprimer le service de la base de données pour le service
+      $stmt_delete_service = $pdo->prepare('DELETE FROM services WHERE serviceId = :serviceId');
+      $stmt_delete_service->execute(['serviceId' => $serviceId]);
+    } else {
+      // Redirection
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+      exit;
+    }
   }
 }
+
 
 // Récupérer les services depuis la base de données
 $stmt = $pdo->query('SELECT * FROM services');
@@ -56,11 +70,11 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <h5 class="card-title"><?php echo $service['serviceName']; ?></h5>
               <p class="card-text"><?php echo $service['description']; ?></p>
               <?php if (!isset($_SESSION['role'])) {  ?>
-              <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>" name="<?php echo $service['serviceName']; ?>">Contactez-nous</button>
+                <button type="button" class="btn btn-dark contact-btn-services" data-id="<?php echo $service['serviceId']; ?>" name="<?php echo $service['serviceName']; ?>">Contactez-nous</button>
               <?php } else { ?>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                  <input type="hidden" name="service_id" value="<?php echo $service['serviceId']; ?>">
-                  <button type="submit" name="action" value="delete" class="btn btn-danger">Supprimer</button>
+                  <input type="hidden" name="serviceId" value="<?php echo $service['serviceId']; ?>">
+                  <button type="button" class="btn btn-danger delete-btn" data-id="<?php echo $service['serviceId']; ?>">Supprimer</button>
                 </form>
               <?php } ?>
             </div>
@@ -75,6 +89,25 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>
+
+  <!-- Script pour la confirmation de suppression -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const confirmDelete = confirm('Voulez-vous vraiment supprimer ce service ?');
+          if (confirmDelete) {
+            // Si l'utilisateur confirme, on soummet le formulaire de suppression
+            const form = button.parentElement;
+            form.innerHTML += '<input type="hidden" name="action" value="delete">';
+            form.innerHTML += '<input type="hidden" name="confirm_delete" value="yes">';
+            form.submit();
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
