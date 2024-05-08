@@ -1,6 +1,6 @@
 <?php
-include_once '../models/Service.php';
-include_once '../config/connectDb.php';
+include_once (dirname(__FILE__).'/../models/Service.php');
+include_once (dirname(__FILE__).'/../config/connectDb.php');
 
 
 // Récupérer les services depuis la base de données

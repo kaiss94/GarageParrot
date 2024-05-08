@@ -1,8 +1,8 @@
 <?php
-include_once '../models/Hours.php';
+include_once dirname(__FILE__).'/../models/Hours.php';
 
 // Connexion à la base de données avec les droits admin
-include_once '../config/connectDbAdmin.php';
+include_once dirname(__FILE__).'/../config/connectDbAdmin.php';
 
 // Récupérer les cars depuis la base de données
 $stmt = $pdo->query('SELECT * FROM openinghours');
@@ -19,7 +19,7 @@ foreach ($horaires as $horaire) {
 <footer class="container bg-danger p-3">
 
   <div class="row align-items-center text-light">
-
+    <!-- Horaires -->
     <div class="col-md-4 col-sm-12 mb-3">
       <h4 class="text-center">Nos horaires :</h4>
       <div class="row">
@@ -31,6 +31,7 @@ foreach ($horaires as $horaire) {
       </div>
     </div>
 
+    <!-- Coordonnées -->
     <div class="col-md-4 col-sm-12 mb-3 text-center">
       <h4>Adresse :</h4>
       <p>5 rue de la ferme</p>
@@ -47,6 +48,7 @@ foreach ($horaires as $horaire) {
       </p>
     </div>
 
+    <!-- Logo -->
     <div class="col-md-4 col-sm-12 text-center">
       <a href="../index.php" class="d-inline-flex">
         <img src="../assets/images/logoSVG.svg" class="img-fluid" alt="logo">

@@ -21,21 +21,21 @@ session_start();
 
 <body>
   <!-- Header -->
-  <?php require_once 'header.php'; ?>
+  <?php require_once (dirname(__FILE__) . '../views/header.php'); ?>
 
   <main class="container-fluid">
 
     <!-- Conteneur présentation des services -->
-    <?php require_once 'carouselServices.php'; ?>
+    <?php require_once (dirname(__FILE__).'../views/carouselServices.php'); ?>
 
     <!-- Conteneur présentation des voitures -->
-    <?php require_once 'carouselCars.php'; ?>
+    <?php require_once (dirname(__FILE__).'../views/carouselCars.php'); ?>
 
     <!-- Conteneur formulaire des avis clients -->
-    <?php require_once 'formReview.php'; ?>
+    <?php require_once (dirname(__FILE__).'../views/formReview.php'); ?>
 
     <!-- Conteneur formulaire de contact -->
-    <?php require_once 'form_contact.php'; ?>
+    <?php require_once (dirname(__FILE__).'../views/form_contact.php'); ?>
 
 
 
@@ -44,7 +44,7 @@ session_start();
 
 
   <!-- Footer -->
-  <?php require_once 'footer.php'; ?>
+  <?php require_once dirname(__FILE__).'../views/footer.php'; ?>
 
 </body>
 

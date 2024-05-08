@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <header class="container bg-danger p-3">
   <div id="logo" class="d-flex flex-column m-3 text-center">
-    <a href="../views/index.php"><img src="../assets/images/logoSVG.svg" alt="logo" width="200" height="150"></a>
+    <a href="../index.php"><img src="../assets/images/logoSVG.svg" alt="logo" width="200" height="150"></a>
   </div>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link text-light active" aria-current="page" href="../views/index.php">Accueil</a>
+            <a class="nav-link text-light active" aria-current="page" href="../index.php">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="../views/services.php">Prestations</a>
