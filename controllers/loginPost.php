@@ -6,8 +6,8 @@ include_once '../config/connectDbAdmin.php';
 // Utiliser HTTPS pour chiffrer les données transmises
 if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
   //laisser commenté en local
-    //header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    //exit();
+    header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    exit();
 }
 
 // Limite les tentatives de connexion pour prévenir les attaques par force brute
@@ -80,4 +80,3 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
-?>
