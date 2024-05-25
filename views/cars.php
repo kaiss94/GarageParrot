@@ -187,6 +187,12 @@ $carsToShow = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 
+  <!-- Alerte succès ajout voiture -->
+  <?php if (isset($_GET['added']) && $_GET['added'] == 'true') : ?>
+    <script>
+      alert('Voiture ajoutée avec succès !');
+    </script>
+  <?php endif; ?>
 
 
   <!-- Conteneur formulaire de contact -->

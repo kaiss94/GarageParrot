@@ -45,8 +45,8 @@ if ($carImage['error'] === UPLOAD_ERR_OK) {
     // Enregistrer la voiture dans la base de données
     $car->saveToDatabaseCars();
 
-    // Redirection vers une page de confirmation ou autre
-    header('Location: ../views/cars.php');
+    // Redirection vers une page de confirmation
+    header('Location: ../views/cars.php?added=true');
     exit();
 } else {
     // Gérer les erreurs de téléchargement de l'image
