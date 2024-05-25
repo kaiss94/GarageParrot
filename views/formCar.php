@@ -20,10 +20,17 @@ session_start();
   <?php require_once 'header.php'; ?>
 
   <main>
-
     <div class="container p-3">
       <h2>Ajouter une voiture</h2>
       <form action="../controllers/add_car.php" method="post" enctype="multipart/form-data">
+        <!-- Ajout d'un jeton CSRF -->
+        <?php
+        if (empty($_SESSION['csrf_token'])) {
+          $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        ?>
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+
         <label for="brand" class="form-label">Marque :</label>
         <input type="text" class="form-control" id="brand" name="brand" required><br>
 
@@ -57,9 +64,7 @@ session_start();
         <button type="submit" class="btn btn-dark">Ajouter voiture</button>
       </form>
     </div>
-
   </main>
-
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>

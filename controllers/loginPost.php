@@ -5,9 +5,9 @@ include_once '../config/connectDbAdmin.php';
 
 // Utiliser HTTPS pour chiffrer les données transmises
 if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
-  //laisser commenté en local
-    header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    exit();
+    //laisser commenté en local
+    //header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    //exit();
 }
 
 // Limite les tentatives de connexion pour prévenir les attaques par force brute
@@ -20,7 +20,8 @@ if ($_SESSION['login_attempts'] >= 5) {
 }
 
 // Fonction pour valider et nettoyer les données d'entrée
-function clean_input($data) {
+function clean_input($data)
+{
     return htmlspecialchars(stripslashes(trim($data)));
 }
 

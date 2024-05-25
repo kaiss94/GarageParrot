@@ -16,15 +16,14 @@ class Car
   public function __construct($id, $brand, $model, $mileage, $kilometers, $price, $engine, $description, $pictureLocation)
   {
     $this->id = $id;
-    $this->brand = $brand;
-    $this->model = $model;
-    $this->mileage = $mileage;
-    $this->kilometers = $kilometers;
-    $this->price = $price;
-    $this->engine = $engine;
-    $this->description = $description;
-    $this->pictureLocation = $pictureLocation;
-
+    $this->brand = htmlspecialchars($brand);
+    $this->model = htmlspecialchars($model);
+    $this->mileage = htmlspecialchars($mileage);
+    $this->kilometers = htmlspecialchars($kilometers);
+    $this->price = htmlspecialchars($price);
+    $this->engine = htmlspecialchars($engine);
+    $this->description = htmlspecialchars($description);
+    $this->pictureLocation = htmlspecialchars($pictureLocation);
 
     // Connexion à la base de données
     include_once '../config/connectDbAdmin.php';
@@ -54,7 +53,7 @@ class Car
     return $this->model;
   }
 
-  public function getmileage()
+  public function getMileage()
   {
     return $this->mileage;
   }
@@ -73,6 +72,7 @@ class Car
   {
     return $this->engine;
   }
+
   public function getDescription()
   {
     return $this->description;
@@ -87,15 +87,14 @@ class Car
   public function saveToDatabaseCars()
   {
     $stmt = $this->pdo->prepare('INSERT INTO cars (brand, model, mileage, kilometers, price, engine, description, pictureLocation) VALUES (:brand, :model, :mileage, :kilometers, :price, :engine, :description, :pictureLocation)');
-    $stmt->execute([
-      'brand' => $this->brand,
-      'model' => $this->model,
-      'mileage' => $this->mileage,
-      'kilometers' => $this->kilometers,
-      'price' => $this->price,
-      'engine' => $this->engine,
-      'description' => $this->description,
-      'pictureLocation' => $this->pictureLocation
-    ]);
+    $stmt->bindParam(':brand', $this->brand);
+    $stmt->bindParam(':model', $this->model);
+    $stmt->bindParam(':mileage', $this->mileage);
+    $stmt->bindParam(':kilometers', $this->kilometers);
+    $stmt->bindParam(':price', $this->price);
+    $stmt->bindParam(':engine', $this->engine);
+    $stmt->bindParam(':description', $this->description);
+    $stmt->bindParam(':pictureLocation', $this->pictureLocation);
+    $stmt->execute();
   }
 }
