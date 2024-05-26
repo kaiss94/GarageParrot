@@ -2,9 +2,6 @@
 session_start();
 
 include_once '../models/Car.php';
-
-
-// Connexion à la base de données
 include_once '../config/connectDbAdmin.php';
 
 // Traitement de la suppression de la voiture
@@ -12,8 +9,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['carId']) && isset($_P
   $carId = $_POST['carId'];
   $action = $_POST['action'];
   if ($action === 'delete') {
-    $stmt = $pdo->prepare('DELETE FROM cars WHERE carId = :carId');
+    // Récupérer le chemin de l'image
+    $stmt = $pdo->prepare('SELECT pictureLocation FROM cars WHERE carId = :carId');
     $stmt->execute(['carId' => $carId]);
+    $car = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($car) {
+      $pictureLocation = $car['pictureLocation'];
+
+      // Supprimer l'image du serveur
+      if (file_exists($pictureLocation)) {
+        unlink($pictureLocation);
+      }
+
+      // Supprimer la voiture de la base de données
+      $stmt = $pdo->prepare('DELETE FROM cars WHERE carId = :carId');
+      $stmt->execute(['carId' => $carId]);
+    }
   }
 }
 
@@ -202,9 +214,6 @@ $carsToShow = $query->fetchAll(PDO::FETCH_ASSOC);
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>
-
-
-
 
 </body>
 
