@@ -21,5 +21,12 @@
     </form>
 </div>
 
+  <!-- Alerte demande envoyée -->
+  <?php if (isset($_GET['added']) && $_GET['added'] == 'true') : ?>
+    <script>
+      alert('Demande de renseignement envoyée !');
+    </script>
+  <?php endif; ?>
+
 
 <script src="../scripts/contact.js"></script>
