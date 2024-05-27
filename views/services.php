@@ -84,6 +84,13 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 
+  <!-- Alerte succès ajout service -->
+  <?php if (isset($_GET['addedService']) && $_GET['addedService'] == 'true') : ?>
+    <script>
+      alert('Service ajoutée avec succès !');
+    </script>
+  <?php endif; ?>
+
   <!-- Conteneur formulaire de contact -->
   <?php require_once 'form_contact.php'; ?>
 
