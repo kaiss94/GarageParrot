@@ -1,5 +1,10 @@
 <?php
 session_start();
+include_once '../config/connectDbAdmin.php';
+//récupération du nombre de messages
+$stmt = $pdo->query('SELECT * FROM contact');
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$totalMessages = (int) count($messages);
 ?>
 
 
@@ -20,7 +25,7 @@ session_start();
   <!-- Header -->
   <?php require_once 'header.php'; ?>
 
-  <main class="container-fluid">
+  <main class="container">
 
 
     <!-- Profil admin -->
@@ -51,12 +56,13 @@ session_start();
       </nav>
     <?php } ?>
 
-    <!-- Profil admin -->
+    <!-- Profil employé -->
     <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'employee') {  ?>
       <nav aria-label="">
         <ul>
         <a href="messages.php">
-            <li>Messagerie</li>
+            <li>Messagerie<?php echo ($totalMessages > 0) ? '<span class="blinking">(' . $totalMessages . ')</span>' : ''; ?>
+</li>
           </a>
           <a href="formCar.php">
             <li>Ajouter des voitures</li>
@@ -77,6 +83,17 @@ session_start();
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>
+
+  <!-- Alerte messagerie clignotante -->
+  <style>
+        .blinking {
+            animation: blinker 2s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+    </style>
 
 </body>
 
