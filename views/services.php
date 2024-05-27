@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['serviceId']) && isset
       $stmt_delete_service = $pdo->prepare('DELETE FROM services WHERE serviceId = :serviceId');
       $stmt_delete_service->execute(['serviceId' => $serviceId]);
     } else {
-      // Redirection
+      // Redirection si non confirmation
       header('Location: ' . $_SERVER['HTTP_REFERER']);
       exit;
     }

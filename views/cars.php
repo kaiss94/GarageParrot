@@ -9,23 +9,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['carId']) && isset($_P
   $carId = $_POST['carId'];
   $action = $_POST['action'];
   if ($action === 'delete') {
-    // Récupérer le chemin de l'image
-    $stmt = $pdo->prepare('SELECT pictureLocation FROM cars WHERE carId = :carId');
-    $stmt->execute(['carId' => $carId]);
-    $car = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($car) {
-      $pictureLocation = $car['pictureLocation'];
-
-      // Supprimer l'image du serveur
-      if (file_exists($pictureLocation)) {
-        unlink($pictureLocation);
-      }
-
-      // Supprimer la voiture de la base de données
-      $stmt = $pdo->prepare('DELETE FROM cars WHERE carId = :carId');
+    // On vérifie si l'utilisateur a confirmé la suppression
+    if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] === 'yes') {
+      // Récupérer le chemin de l'image
+      $stmt = $pdo->prepare('SELECT pictureLocation FROM cars WHERE carId = :carId');
       $stmt->execute(['carId' => $carId]);
-    }
+      $car = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      if ($car) {
+        $pictureLocation = $car['pictureLocation'];
+
+        // Supprimer l'image du serveur
+        if (file_exists($pictureLocation)) {
+          unlink($pictureLocation);
+        }
+
+        // Supprimer la voiture de la base de données
+        $stmt = $pdo->prepare('DELETE FROM cars WHERE carId = :carId');
+        $stmt->execute(['carId' => $carId]);
+      }
+    } else {
+      // Redirection si non confirmation
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+      exit;
+    } 
   }
 }
 
@@ -169,7 +176,7 @@ $carsToShow = $query->fetchAll(PDO::FETCH_ASSOC);
                   <?php } else { ?>
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                       <input type="hidden" name="carId" value="<?php echo $car['carId']; ?>">
-                      <button type="submit" name="action" value="delete" class="btn btn-danger">Supprimer</button>
+                      <button type="submit" name="action" value="delete" class="btn btn-danger delete-btn" data-id="<?php echo $car['carId']; ?>">Supprimer</button>
                     </form>
                   <?php } ?>
                 </div>
@@ -214,6 +221,25 @@ $carsToShow = $query->fetchAll(PDO::FETCH_ASSOC);
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>
+
+  <!-- Script pour la confirmation de suppression -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const confirmDelete = confirm('Voulez-vous vraiment supprimer cette voiture ?');
+          if (confirmDelete) {
+            // Si l'utilisateur confirme, on soummet le formulaire de suppression
+            const form = button.parentElement;
+            form.innerHTML += '<input type="hidden" name="action" value="delete">';
+            form.innerHTML += '<input type="hidden" name="confirm_delete" value="yes">';
+            form.submit();
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
