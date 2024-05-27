@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         // Redirection après l'envoi réussi
-        header('Location: ../index.php?added=true');
+        header('Location: ../index.php?addedContact=true');
         exit;
     } catch (PDOException $e) {
         // En cas d'erreur de connexion ou d'exécution de la requête
@@ -36,6 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Redirection si le formulaire est accédé directement
-    header('Location: ../index.php?added=true');
+    header('Location: ../index.php?addedContact=true');
     exit;
 }

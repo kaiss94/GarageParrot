@@ -22,7 +22,7 @@
 </div>
 
   <!-- Alerte demande envoyée -->
-  <?php if (isset($_GET['added']) && $_GET['added'] == 'true') : ?>
+  <?php if (isset($_GET['addedContact']) && $_GET['addedContact'] == 'true') : ?>
     <script>
       alert('Demande de renseignement envoyée !');
     </script>
