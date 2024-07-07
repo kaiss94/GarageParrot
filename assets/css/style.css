@@ -11,26 +11,55 @@
   }
 }
 
-body{
+@media (max-width: 576px) {
+  .card {
+    font-size: 0.9rem;
+    /* Réduit la taille de la police sur les petits écrans */
+    max-height: 24rem;
+  }
+
+  .card-img-top {
+    max-height: 150px;
+    /* Réduit la hauteur de l'image sur les petits écrans */
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    /* Réduit la taille de la police du titre sur les petits écrans */
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+    /* Réduit la taille de la police du texte sur les petits écrans */
+  }
+}
+
+body {
   font-family: "Barlow", sans-serif;
 }
 
-h1, h2, h3, h5{
+h1,
+h2,
+h3,
+h5 {
   font-family: "Rajdhani", sans-serif;
 }
 
 .pagination .page-link {
   background-color: #000;
   border-color: #000;
-  color: #fff; /* Couleur du texte */
+  color: #fff;
+  /* Couleur du texte */
 }
 
 .pagination .page-link:hover {
-  background-color: #6c757d; /* Couleur au survol */
+  background-color: #6c757d;
+  /* Couleur au survol */
   border-color: #6c757d;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #6c757d; /* Couleur de l'élément actif */
+  background-color: #6c757d;
+  /* Couleur de l'élément actif */
   border-color: #6c757d;
 }
